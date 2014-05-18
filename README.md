@@ -7,17 +7,13 @@ If you'd like to see a bit of the magic behind Ruby on Rails, Nails might be wor
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Although Nails is technically a gem, it is really meant as a learning tool and the best
+way to learn from it is to clone the repo:
+    git clone https://github.com/natejenkins/nails
 
-    gem 'nails'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install nails
+Then cd into the repo
+    bundle install
+    rake console
 
 ## Usage
 
