@@ -13,6 +13,12 @@ way to learn from it is to clone the repo:
 
 Then cd into the repo
     bundle install
+
+You can run the example application:
+    cd example
+    rackup
+
+Or you can play around in the console:
     rake console
 
 ## Usage

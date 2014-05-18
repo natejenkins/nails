@@ -73,8 +73,10 @@ module Nails
         puts "loading controller: #{controller_name}"
         load(controller_path)
         model_path = File.join(config.model_dir, controller + ".rb")
-        puts "loading model: #{model_path}"
-        load(model_path)
+        if File.exists? model_path
+          puts "loading model: #{model_path}"
+          load(model_path)
+        end
 
         if Object.const_get(controller_name).method_defined?(method)
           eval(controller_name).new.handle_request(method, params)

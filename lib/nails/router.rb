@@ -47,8 +47,12 @@ module Nails
       url = url.sub(/\A\//, '').chomp("/")
       @route_table.each do |r|
 
-        if (method == r[0]) && (match = url.match(r[1]))
-          return [r[2], r[3], params.merge(params_from_match(match))]
+        if (method == r[0]) 
+          if (match = url.match(r[1]))
+            return [r[2], r[3], params.merge(params_from_match(match))]
+          elsif (url == '')
+            return [r[2], r[3], params]
+          end
         end
       end
       puts "route: #{url} not found"
