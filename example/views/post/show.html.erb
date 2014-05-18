@@ -1,0 +1,7 @@
+<h1><%=@user.name%>'s post "<%=@post.title%>"</h1>
+
+<h3>Message</h3>
+<p><%= @post.content %></p>
+
+
+<p><a href="/user/<%=@user.id%>">Back to <%=@user.name%>'s homepage</a></p>

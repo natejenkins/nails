@@ -1,0 +1,12 @@
+<form action="/user/<%=@user.id%>/post" method="post">
+<input type="hidden" name="post[user_id]" value="<%=@user.id%>">
+Title: 
+<br>
+<input type="text" name="post[title]">
+<br>
+Message: 
+<br>
+<textarea name="post[content]" cols="50" rows="10"></textarea>
+<br>
+<input type="submit" value="Submit">
+</form> 
