@@ -1,4 +1,5 @@
 Nails.app.router.draw do 
+  get "/", to: "static#home"
   get "user", to: "user#index"
   get "user/new", to: "user#new"
   get "user/:user_id", to: "user#show"
