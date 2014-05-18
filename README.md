@@ -11,14 +11,17 @@ Although Nails is technically a gem, it is really meant as a learning tool and t
 way to learn from it is to clone the repo:
     git clone https://github.com/natejenkins/nails
 
-Then cd into the repo
+Then cd into the repo and
+
     bundle install
 
 You can run the example application:
+
     cd example
     rackup
 
 Or you can play around in the console:
+
     rake console
 
 ## Usage
