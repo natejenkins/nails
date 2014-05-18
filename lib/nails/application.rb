@@ -102,6 +102,10 @@ module Nails
       end
     end
 
+    def call(env)
+      @request_handler.call(env)
+    end
+
     def initialize!()
       define_routes
       load_controllers
