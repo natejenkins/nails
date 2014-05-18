@@ -1,4 +1,4 @@
-reload!
+#reload!
 require 'pry'
 require 'pry-nav'
 load 'example/config/application.rb'

@@ -1,3 +1,5 @@
+require File.join(File.expand_path("../../../", __FILE__), 'lib/nails')
+
 module ExampleApp
   class Application < Nails::Application
     config.base_dir = File.expand_path("../../", __FILE__)
