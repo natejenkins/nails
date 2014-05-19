@@ -19,12 +19,10 @@ module Nails
       @route_table = []
     end
 
+    ### This is the magic behind routes.rb, and it is somewhat poorly named.  
     def draw(&block)
-      puts "clearing"
       clear()
-      puts "calling block"
       instance_exec(&block)
-      puts "finished"
     end
 
     def initialize()
