@@ -23,8 +23,7 @@ module Nails
     end
 
     def get(url, options)
-      controller, method = options[:to].to_s.split('#')
-      @route_table += [["get", url_reg_exp(url), controller, method]]
+      add_route("get", url, options)
     end
 
     def post(url, options)
