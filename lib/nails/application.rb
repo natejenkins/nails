@@ -21,12 +21,7 @@ module Nails
 
       def instance
         @@instance ||= new
-      end
-
-      def method_missing(m, *args, &block)  
-        puts "There's no CLASS method called #{m} here -- please try again."
-        instance.m(args, block)  
-      end  
+      end 
 
       def config
         instance.config
