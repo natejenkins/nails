@@ -9,7 +9,7 @@ module Nails
     end
 
     def self.inherited(base)
-        puts "inheriting from Nails::Model"
+        #puts "inheriting from Nails::Model"
         base.db
         base.db_columns
         base.db.type_translation = true
@@ -21,10 +21,10 @@ module Nails
     end
 
     def self.load_db_columns
-      puts "Loading db columns"
+      #puts "Loading db columns"
       columns = []
       
-      puts "TABLE_NAME: #{table_name}"
+      #puts "TABLE_NAME: #{table_name}"
       db.query( "select * from #{table_name}" ) do |result|
         result.columns.each do |c| 
           columns += [c]

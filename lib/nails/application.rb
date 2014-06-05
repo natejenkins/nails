@@ -16,6 +16,10 @@ module Nails
     class << self
       def inherited(base)
         puts "inheriting from Nails::Application"
+        # My initial drive in writing Nails was to understand where Rails.application comes from.  After some time
+        # digging around the Rails source code, I figured out that Rails defines Rails.application at the moment your 
+        # application class inherits from Rails::Application.  This is also when I learned of the existence
+        # of the inherited class method.  
         Nails.application = base.instance
       end
 
@@ -37,22 +41,18 @@ module Nails
     end
 
     def load_controllers
-      puts "loading controllers"
       load_directory(Nails.application.config.controller_dir)
     end
 
     def load_models
-      puts "loading models"
       load_directory(Nails.application.config.model_dir)
     end
 
     def load_directory(dir)
-      puts "loading directory: #{dir}"
       Dir.new(dir).each do |filename|
         if filename.match(/\A\./)
           next
         end
-        puts "loading file #{filename}"
         load(File.join(dir, filename))
       end
     end
@@ -65,11 +65,9 @@ module Nails
 
         ### This is a bit of dynamic loading so that changes in the controller and model of the
         ### Route in question do not require a full server reload
-        puts "loading controller: #{controller_name}"
         load(controller_path)
         model_path = File.join(config.model_dir, controller + ".rb")
         if File.exists? model_path
-          puts "loading model: #{model_path}"
           load(model_path)
         end
 
@@ -90,7 +88,6 @@ module Nails
       @request_handler = lambda do |env| 
         url = env["REQUEST_PATH"].sub(/\A\//, '')
         params = {}
-        puts "URL: #{url}"
         if env["REQUEST_METHOD"] == "POST"
           req = Rack::Request.new(env)
           params = req.params

@@ -1,4 +1,4 @@
-#reload!
+# Script file I use to test out the Nails library
 require 'pry'
 require 'pry-nav'
 load 'example/config/application.rb'

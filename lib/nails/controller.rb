@@ -10,12 +10,10 @@ module Nails
 
     def handle_request(method, params)
       self.params = params
-      puts "**************"
-      puts params
-      puts "****************"
+      # puts "params: #{params}"
       res = self.send(method)
       if !rendered
-        puts "default rendering"
+        # puts "default rendering"
         render(method)
       else
         rendered_content
@@ -29,7 +27,7 @@ module Nails
       view_path = File.join(Nails.application.config.view_dir, controller_name, view)
       if File.exists? view_path
         template = ERB.new(File.read(view_path))
-        puts "------------ RENDERING #{view_path} -----------"
+        # puts "------------ RENDERING #{view_path} -----------"
         self.rendered_content = template.result(binding)
       else
         error = "Template missing: #{view_path}"

@@ -36,7 +36,9 @@ You should then be able to visit [http://localhost:9292/user/1](http://localhost
 Or you can play around in the console:
 
     rake console
-    load 'nest.rb'
+    load 'example/config/application.rb'
+    Nails.app.initialize!
+    Nails.app.handle_request("user/1/post/1")
 
 Or run the tests:
 
@@ -48,7 +50,7 @@ The best way to learn is by doing, and there is a lot left to be done in Nails. 
 
 * Currently only "get" and "post" requests are possible.  Add capabilities for "put" and "delete"
 * Add helpers that are automatically loaded for their respective views
-* Add find_by methods such as find_by_name, try to do this entirely based on convention rather than hard-coding
+* Add find_by methods such as find_by_name. Try to do this entirely based on convention rather than hard-coding
 * Add before and after filters to controllers
 * Add Haml support
 * Assets - they currently don't exist!
