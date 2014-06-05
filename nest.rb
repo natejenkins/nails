@@ -2,8 +2,10 @@
 require 'pry'
 require 'pry-nav'
 load 'example/config/application.rb'
-# Nails.app.define_routes
-# Nails.app.handle_request("user/1/post/1")
+
 Nails.app.initialize!
 
-Nails.app.run
+Nails.app.handle_request("user/1/post/1")
+
+## If you want to run a web server, uncomment the following
+# Nails.app.run
